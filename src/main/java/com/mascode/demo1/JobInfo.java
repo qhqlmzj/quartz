@@ -3,8 +3,18 @@ package com.mascode.demo1;
 import org.quartz.Job;
 import org.quartz.JobKey;
 
+/**
+ * @author mazijun@58.com
+ * job的基本信息
+ */
 public class JobInfo {
+    /**
+     * job 的唯一标示
+     */
     private JobKey jobKey;
+    /**
+     * job需要执行的具体的业务逻辑
+     */
     private Class<? extends Job> job;
 
     public Class<? extends Job> getJob() {

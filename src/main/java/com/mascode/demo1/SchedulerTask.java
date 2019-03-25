@@ -3,8 +3,17 @@ package com.mascode.demo1;
 import org.quartz.JobDetail;
 import org.quartz.Trigger;
 
+/**
+ * @author mazijun@58.com
+ */
 public class SchedulerTask {
+    /**
+     * job详情
+     */
     private JobDetail jobDetail;
+    /**
+     * 触发job逻辑的触发器
+     */
     private Trigger trigger;
 
     public JobDetail getJobDetail() {
