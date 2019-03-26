@@ -12,18 +12,14 @@ public class MonthJob extends JobBindingAdapter {
 
     @Override
     protected JobInfo buildJobInfo() {
-        JobInfo jobInfo = new JobInfo();
+        JobInfo jobInfo = new JobInfo("job2", "group1");
         jobInfo.setJob(Say.class);
-        jobInfo.setJobName("job2");
-        jobInfo.setGroupName("group1");
         return jobInfo;
     }
 
     @Override
     protected TriggerInfo buildTriggerInfo() {
-        TriggerInfo triggerInfo = new TriggerInfo();
-        triggerInfo.setTriggerName("trigger2");
-        triggerInfo.setGroupName("group");
+        TriggerInfo triggerInfo = new TriggerInfo("trigger2", "group");
         triggerInfo.setScheduleBuilder(simpleSchedule().withIntervalInSeconds(1).repeatForever());
         return triggerInfo;
     }

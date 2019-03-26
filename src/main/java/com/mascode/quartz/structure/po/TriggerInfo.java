@@ -18,10 +18,14 @@ public class TriggerInfo {
      */
     private ScheduleBuilder scheduleBuilder;
 
+    public TriggerInfo(String triggerName, String groupName) {
+        this.triggerName = triggerName;
+        this.groupName = groupName;
+    }
+
     public ScheduleBuilder getScheduleBuilder() {
         return scheduleBuilder;
     }
-
 
     public void setScheduleBuilder(ScheduleBuilder scheduleBuilder) {
         this.scheduleBuilder = scheduleBuilder;

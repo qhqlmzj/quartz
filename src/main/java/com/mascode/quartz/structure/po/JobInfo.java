@@ -17,10 +17,14 @@ public class JobInfo {
      */
     private Class<? extends Job> job;
 
+    public JobInfo(String jobName, String groupName) {
+        this.jobName = jobName;
+        this.groupName = groupName;
+    }
+
     public Class<? extends Job> getJob() {
         return job;
     }
-
 
     public void setJob(Class<? extends Job> job) {
         this.job = job;

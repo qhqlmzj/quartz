@@ -12,28 +12,19 @@ import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 public class DailyJob extends JobBindingAdapter {
 
     @Override
-    protected JobDataMap buildJobData() {
-        JobDataMap jobDataMap = new JobDataMap();
-        jobDataMap.put("key", "value");
-        return jobDataMap;
-    }
-
-    @Override
     protected JobInfo buildJobInfo() {
-        JobInfo jobInfo = new JobInfo();
+        JobInfo jobInfo = new JobInfo("job1", "group1");
         jobInfo.setJob(HelloJob.class);
-        jobInfo.setJobName("job1");
-        jobInfo.setGroupName("group1");
         return jobInfo;
     }
 
     @Override
     protected TriggerInfo buildTriggerInfo() {
-        TriggerInfo triggerInfo = new TriggerInfo();
-        triggerInfo.setTriggerName("trigger1");
-        triggerInfo.setGroupName("group1");
-        triggerInfo.setScheduleBuilder(simpleSchedule().withIntervalInSeconds(6).repeatForever());
+        TriggerInfo triggerInfo = new TriggerInfo("trigger1", "group1");
+        triggerInfo.setScheduleBuilder(
+                simpleSchedule()
+                        .withIntervalInSeconds(6)
+                        .repeatForever());
         return triggerInfo;
     }
-
 }
