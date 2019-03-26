@@ -60,7 +60,7 @@ public class DefaultInitializer implements QuartzInitializer {
         for (JobBinding jobBinding : jobBindings) {
             SchedulerTask schedulerTask = jobBinding.buildSchedulerTask();
             if (schedulerTask == null) {
-                log("SchedulerTask is null , class name : " + jobBinding.getClass().getName());
+                log("init : " + jobBinding.getClass().getName() + " , schedulerTask is null.");
                 break;
             }
             schedulerTasks.add(schedulerTask);
@@ -78,7 +78,9 @@ public class DefaultInitializer implements QuartzInitializer {
             if (schedulerBinding != null) {
                 Object obj = getApplicationContext().getBean(beanName);
                 if (obj instanceof JobBinding) {
-                    list.add((JobBinding) obj);
+                    JobBinding jobBinding = (JobBinding) obj;
+                    list.add(jobBinding);
+                    log("init : " + jobBinding.getClass().getName() + " , desc : " + schedulerBinding.des());
                 }
             }
         }
@@ -88,4 +90,5 @@ public class DefaultInitializer implements QuartzInitializer {
     private ApplicationContext getApplicationContext() {
         return applicationContext;
     }
+
 }
