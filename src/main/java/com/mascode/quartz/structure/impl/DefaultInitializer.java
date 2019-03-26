@@ -19,7 +19,6 @@ import java.util.List;
 /**
  * @author mazijun@58.com
  */
-@Service
 public class DefaultInitializer implements QuartzInitializer, ApplicationContextAware {
 
     private boolean isInit = false;
