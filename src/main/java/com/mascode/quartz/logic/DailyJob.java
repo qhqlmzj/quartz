@@ -4,7 +4,6 @@ import com.mascode.quartz.structure.impl.JobBindingAdapter;
 import com.mascode.quartz.structure.po.JobInfo;
 import com.mascode.quartz.structure.annotation.SchedulerBinding;
 import com.mascode.quartz.structure.po.TriggerInfo;
-import org.quartz.*;
 
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 
