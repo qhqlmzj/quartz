@@ -1,7 +1,7 @@
 package com.mascode.quartz.structure.impl;
 
 import com.mascode.quartz.structure.JobBinding;
-import com.mascode.quartz.structure.NamingSpace;
+import com.mascode.quartz.structure.NameSpace;
 import com.mascode.quartz.structure.po.JobInfo;
 import com.mascode.quartz.structure.po.SchedulerTask;
 import com.mascode.quartz.structure.po.TriggerInfo;
@@ -17,7 +17,7 @@ import static org.quartz.TriggerBuilder.newTrigger;
 public abstract class JobBindingAdapter implements JobBinding {
 
     @Autowired
-    private NamingSpace namingSpace;
+    private NameSpace namingSpace;
 
     public final SchedulerTask buildSchedulerTask() {
         SchedulerTask schedulerTask = new SchedulerTask();

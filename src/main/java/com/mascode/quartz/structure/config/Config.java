@@ -1,7 +1,7 @@
 package com.mascode.quartz.structure.config;
 
-import com.mascode.quartz.structure.NamingSpace;
-import com.mascode.quartz.structure.impl.NamingSpaceAdapter;
+import com.mascode.quartz.structure.NameSpace;
+import com.mascode.quartz.structure.impl.NameSpaceAdapter;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.impl.StdSchedulerFactory;
@@ -20,8 +20,8 @@ public class Config {
     }
 
     @Bean
-    public NamingSpace getNamingSpace() {
-        return new NamingSpaceAdapter();
+    public NameSpace getNamingSpace() {
+        return new NameSpaceAdapter();
     }
 
 }
