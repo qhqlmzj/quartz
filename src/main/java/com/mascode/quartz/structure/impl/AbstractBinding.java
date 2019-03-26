@@ -19,16 +19,24 @@ public abstract class AbstractBinding implements JobBinding {
         SchedulerTask schedulerTask = new SchedulerTask();
         JobDataMap jobDataMap = buildJobData();
         JobDetail jobDetail = getJobDetail(jobDataMap);
-        if (jobDetail == null) {
+        if (checkJobDetail(jobDetail)) {
             return null;
         }
         Trigger trigger = getTrigger(jobDetail);
-        if (trigger == null) {
+        if (checkTrigger(trigger)) {
             return null;
         }
         schedulerTask.setJobDetail(jobDetail);
         schedulerTask.setTrigger(trigger);
         return schedulerTask;
+    }
+
+    private boolean checkJobDetail(JobDetail jobDetail) {
+        return jobDetail == null || jobDetail.getKey() == null || jobDetail.getJobClass() == null;
+    }
+
+    private boolean checkTrigger(Trigger trigger) {
+        return trigger == null || trigger.getKey() == null || trigger.getScheduleBuilder() == null;
     }
 
     private JobDetail getJobDetail(JobDataMap jobDataMap) {
