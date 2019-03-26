@@ -1,5 +1,8 @@
 package com.mascode.quartz.structure;
 
+import com.mascode.quartz.structure.po.JobInfo;
+import com.mascode.quartz.structure.po.SchedulerTask;
+import com.mascode.quartz.structure.po.TriggerInfo;
 import org.quartz.*;
 
 import static org.quartz.JobBuilder.newJob;

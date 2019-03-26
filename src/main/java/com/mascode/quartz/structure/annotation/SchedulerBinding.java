@@ -1,4 +1,4 @@
-package com.mascode.quartz.structure;
+package com.mascode.quartz.structure.annotation;
 
 import org.springframework.stereotype.Service;
 

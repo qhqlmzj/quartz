@@ -1,4 +1,4 @@
-package com.mascode.quartz.structure;
+package com.mascode.quartz.structure.po;
 
 import org.quartz.ScheduleBuilder;
 import org.quartz.TriggerKey;

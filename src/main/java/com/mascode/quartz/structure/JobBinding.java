@@ -1,5 +1,7 @@
 package com.mascode.quartz.structure;
 
+import com.mascode.quartz.structure.po.SchedulerTask;
+
 /**
  * @author mazijun@58.com
  */

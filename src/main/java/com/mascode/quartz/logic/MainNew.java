@@ -1,6 +1,6 @@
 package com.mascode.quartz.logic;
 
-import com.mascode.quartz.structure.QuartzUtil;
+import com.mascode.quartz.structure.QuartzInitializer;
 import org.quartz.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -13,7 +13,7 @@ public class MainNew {
         ApplicationContext context = new AnnotationConfigApplicationContext(
                 "com");
         applicationContext = context;
-        QuartzUtil.initQuartz(context);
+        QuartzInitializer.initQuartz(context);
         try {
             Thread.sleep(10 * 1000);
         } catch (InterruptedException e) {
