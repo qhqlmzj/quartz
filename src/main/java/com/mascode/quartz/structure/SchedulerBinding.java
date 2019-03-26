@@ -1,4 +1,6 @@
-package com.mascode.demo1;
+package com.mascode.quartz.structure;
+
+import org.springframework.stereotype.Service;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,6 +9,7 @@ import java.lang.annotation.Target;
 
 
 @Target(ElementType.TYPE)
-@Retention(RetentionPolicy.CLASS)
+@Retention(RetentionPolicy.RUNTIME)
+@Service
 public @interface SchedulerBinding {
 }

@@ -1,17 +1,15 @@
-package com.mascode.demo1;
+package com.mascode.quartz.logic;
 
+import com.mascode.quartz.structure.AbstractBinding;
+import com.mascode.quartz.structure.JobInfo;
+import com.mascode.quartz.structure.SchedulerBinding;
+import com.mascode.quartz.structure.TriggerInfo;
 import org.quartz.*;
 
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 
 @SchedulerBinding
 public class DailyJob extends AbstractBinding {
-
-    private static final DailyJob dailyJob = new DailyJob();
-
-    public static DailyJob getInstance() {
-        return dailyJob;
-    }
 
     @Override
     protected JobDataMap buildJobData() {

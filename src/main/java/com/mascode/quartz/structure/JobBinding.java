@@ -1,4 +1,4 @@
-package com.mascode.demo1;
+package com.mascode.quartz.structure;
 
 /**
  * @author mazijun@58.com

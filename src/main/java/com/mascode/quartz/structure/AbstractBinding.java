@@ -1,9 +1,6 @@
-package com.mascode.demo1;
+package com.mascode.quartz.structure;
 
 import org.quartz.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.quartz.JobBuilder.newJob;
 import static org.quartz.TriggerBuilder.newTrigger;
@@ -12,11 +9,6 @@ import static org.quartz.TriggerBuilder.newTrigger;
  * @Author mazijun@58.com
  */
 public abstract class AbstractBinding implements JobBinding {
-    private static final List<SchedulerTask> schedulerTaskList = new ArrayList<SchedulerTask>();
-
-    public static List<SchedulerTask> getSchedulerTaskList() {
-        return schedulerTaskList;
-    }
 
     public SchedulerTask buildSchedulerTask() {
         SchedulerTask schedulerTask = new SchedulerTask();

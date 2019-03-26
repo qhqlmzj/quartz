@@ -1,4 +1,4 @@
-package com.mascode.demo1;
+package com.mascode.quartz.structure;
 
 import org.quartz.Job;
 import org.quartz.JobKey;
