@@ -4,7 +4,6 @@ import com.mascode.quartz.structure.NameSpace;
 import com.mascode.quartz.structure.Quartz;
 import com.mascode.quartz.structure.impl.DefaultNameSpace;
 import com.mascode.quartz.structure.impl.DefaultQuartz;
-import com.mascode.quartz.structure.impl.NameSpaceAdapter;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.impl.StdSchedulerFactory;
