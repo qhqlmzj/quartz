@@ -1,13 +1,11 @@
 package com.mascode.quartz.structure.impl;
 
 import com.mascode.quartz.structure.JobBinding;
-import com.mascode.quartz.structure.Quartz;
 import com.mascode.quartz.structure.QuartzInitializer;
 import com.mascode.quartz.structure.annotation.SchedulerBinding;
 import com.mascode.quartz.structure.po.SchedulerTask;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -44,7 +42,6 @@ public class DefaultInitializer implements QuartzInitializer {
         Trigger trigger = schedulerTask.getTrigger();
         scheduler.addJob(jobDetail, true);
         TriggerKey triggerKey = trigger.getKey();
-        //检测是否已经存在当前的trigger
         if (scheduler.checkExists(triggerKey)) {
             Trigger triggerOld = scheduler.getTrigger(triggerKey);
             scheduler.rescheduleJob(triggerKey, triggerOld);
@@ -73,8 +70,7 @@ public class DefaultInitializer implements QuartzInitializer {
 
     private List<JobBinding> getJobBindings() {
         List<JobBinding> list = new ArrayList();
-        String[] beans = getApplicationContext()
-                .getBeanDefinitionNames();
+        String[] beans = getApplicationContext().getBeanNamesForAnnotation(SchedulerBinding.class);
         for (String beanName : beans) {
             Class<?> beanType = getApplicationContext()
                     .getType(beanName);
