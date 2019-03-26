@@ -12,7 +12,7 @@ import static org.quartz.TriggerBuilder.newTrigger;
 /**
  * @Author mazijun@58.com
  */
-public abstract class AbstractBinding implements JobBinding {
+public abstract class JobBindingAdapter implements JobBinding {
 
 
     public final SchedulerTask buildSchedulerTask() {
