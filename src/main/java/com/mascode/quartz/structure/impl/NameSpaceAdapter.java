@@ -17,7 +17,7 @@ import org.springframework.util.StringUtils;
  * @Primary
  * @Service 以上两个注解，就可以替换掉当前的默认实现
  */
-public class NameSpaceAdapter implements NameSpace {
+public abstract class NameSpaceAdapter implements NameSpace {
     public final JobKey convertJobKey(String jobName, String groupName) {
         if (StringUtils.isEmpty(jobName) || StringUtils.isEmpty(groupName)) {
             return null;
@@ -36,7 +36,5 @@ public class NameSpaceAdapter implements NameSpace {
         return getNameSpace() + base;
     }
 
-    protected String getNameSpace() {
-        return "";
-    }
+    protected abstract String getNameSpace();
 }
