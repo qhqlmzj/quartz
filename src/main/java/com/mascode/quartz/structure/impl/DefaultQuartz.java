@@ -14,7 +14,7 @@ public class DefaultQuartz implements Quartz {
     private Scheduler scheduler;
 
     public void shutDown() throws SchedulerException {
-        scheduler.shutdown();
+        scheduler.shutdown(true);
     }
 
     public void standBy() throws SchedulerException {
