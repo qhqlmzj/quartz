@@ -1,6 +1,5 @@
 package com.mascode.quartz.structure;
 
-import org.springframework.context.ApplicationContext;
 
 /**
  * @author mazijun
@@ -14,7 +13,7 @@ public interface QuartzInitializer {
      * <p>
      * 1. 实现JobBindingAdapter
      * 2. 在具体的实现类上面添加@SchedulerBinding注解
-     * 3. 重写buildJobInfo 与 buildTriggerInfo 方法（必须）
+     * 3. 重写buildJobInfo 与 buildTriggerInfo 方法（必须,任意一个为null则不进行处理）
      * 4. buildJobData 方法非必须实现，看具体业务场景
      *
      * @param

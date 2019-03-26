@@ -8,5 +8,8 @@ public class HelloJob implements Job {
 
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         System.out.println("HELLO JOB " + jobExecutionContext.getJobDetail().getJobDataMap().get("key"));
+        jobExecutionContext.getJobDetail().getJobDataMap().put("key", "newValue");
+        System.out.println("HELLO JOB " + jobExecutionContext.getJobDetail().getJobDataMap().get("key"));
+
     }
 }
