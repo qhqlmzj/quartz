@@ -12,6 +12,13 @@ import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 public class DailyJob extends JobBindingAdapter {
 
     @Override
+    protected JobDataMap buildJobData() {
+        JobDataMap jobDataMap = new JobDataMap();
+        jobDataMap.put("key", "value");
+        return jobDataMap;
+    }
+
+    @Override
     protected JobInfo buildJobInfo() {
         JobInfo jobInfo = new JobInfo();
         jobInfo.setJob(HelloJob.class);
