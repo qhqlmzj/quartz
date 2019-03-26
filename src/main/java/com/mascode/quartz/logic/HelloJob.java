@@ -7,7 +7,7 @@ import org.quartz.JobExecutionException;
 public class HelloJob implements Job {
 
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-        System.out.println("HELLO JOB " + jobExecutionContext.getJobDetail().getJobDataMap().get("key"));
+        System.out.println("HELLO JOB " + jobExecutionContext.getJobDetail().getKey());
         jobExecutionContext.getJobDetail().getJobDataMap().put("key", "newValue");
         System.out.println("HELLO JOB " + jobExecutionContext.getJobDetail().getJobDataMap().get("key"));
 

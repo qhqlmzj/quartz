@@ -1,7 +1,6 @@
 package com.mascode.quartz.structure.po;
 
 import org.quartz.ScheduleBuilder;
-import org.quartz.TriggerKey;
 
 /**
  * @author mazijun@58.com
@@ -12,7 +11,8 @@ public class TriggerInfo {
     /**
      * 触发器的唯一标示
      */
-    private TriggerKey triggerKey;
+    private String triggerName;
+    private String groupName;
     /**
      * 负责具体调度任务的调度触发条件
      */
@@ -22,15 +22,24 @@ public class TriggerInfo {
         return scheduleBuilder;
     }
 
-    public TriggerKey getTriggerKey() {
-        return triggerKey;
-    }
 
     public void setScheduleBuilder(ScheduleBuilder scheduleBuilder) {
         this.scheduleBuilder = scheduleBuilder;
     }
 
-    public void setTriggerKey(TriggerKey triggerKey) {
-        this.triggerKey = triggerKey;
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public String getTriggerName() {
+        return triggerName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    public void setTriggerName(String triggerName) {
+        this.triggerName = triggerName;
     }
 }

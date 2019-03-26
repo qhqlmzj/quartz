@@ -1,7 +1,6 @@
 package com.mascode.quartz.structure.po;
 
 import org.quartz.Job;
-import org.quartz.JobKey;
 
 /**
  * @author mazijun@58.com
@@ -11,7 +10,8 @@ public class JobInfo {
     /**
      * job 的唯一标示
      */
-    private JobKey jobKey;
+    private String jobName;
+    private String groupName;
     /**
      * job需要执行的具体的业务逻辑
      */
@@ -21,15 +21,24 @@ public class JobInfo {
         return job;
     }
 
-    public JobKey getJobKey() {
-        return jobKey;
-    }
 
     public void setJob(Class<? extends Job> job) {
         this.job = job;
     }
 
-    public void setJobKey(JobKey jobKey) {
-        this.jobKey = jobKey;
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public String getJobName() {
+        return jobName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    public void setJobName(String jobName) {
+        this.jobName = jobName;
     }
 }

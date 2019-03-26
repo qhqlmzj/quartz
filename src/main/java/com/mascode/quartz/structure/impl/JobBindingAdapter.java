@@ -1,10 +1,12 @@
 package com.mascode.quartz.structure.impl;
 
 import com.mascode.quartz.structure.JobBinding;
+import com.mascode.quartz.structure.NamingSpace;
 import com.mascode.quartz.structure.po.JobInfo;
 import com.mascode.quartz.structure.po.SchedulerTask;
 import com.mascode.quartz.structure.po.TriggerInfo;
 import org.quartz.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.quartz.JobBuilder.newJob;
 import static org.quartz.TriggerBuilder.newTrigger;
@@ -14,6 +16,8 @@ import static org.quartz.TriggerBuilder.newTrigger;
  */
 public abstract class JobBindingAdapter implements JobBinding {
 
+    @Autowired
+    private NamingSpace namingSpace;
 
     public final SchedulerTask buildSchedulerTask() {
         SchedulerTask schedulerTask = new SchedulerTask();
@@ -44,8 +48,12 @@ public abstract class JobBindingAdapter implements JobBinding {
         if (jobInfo == null) {
             return null;
         }
+        JobKey jobKey = namingSpace.convertJobKey(jobInfo.getJobName(), jobInfo.getGroupName());
+        if (jobKey == null) {
+            return null;
+        }
         JobBuilder jobBuilder = newJob(jobInfo.getJob())
-                .withIdentity(jobInfo.getJobKey());
+                .withIdentity(jobKey);
         if (jobBuilder == null) {
             return null;
         }
@@ -64,7 +72,11 @@ public abstract class JobBindingAdapter implements JobBinding {
         if (triggerInfo == null) {
             return null;
         }
-        TriggerBuilder triggerBuilder = newTrigger().withIdentity(triggerInfo.getTriggerKey()).withSchedule(triggerInfo.getScheduleBuilder());
+        TriggerKey triggerKey = namingSpace.convertTriggerKey(triggerInfo.getTriggerName(), triggerInfo.getGroupName());
+        if (triggerKey == null) {
+            return null;
+        }
+        TriggerBuilder triggerBuilder = newTrigger().withIdentity(triggerKey).withSchedule(triggerInfo.getScheduleBuilder());
         if (triggerBuilder == null) {
             return null;
         }

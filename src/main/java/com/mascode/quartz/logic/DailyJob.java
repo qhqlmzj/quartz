@@ -22,14 +22,16 @@ public class DailyJob extends JobBindingAdapter {
     protected JobInfo buildJobInfo() {
         JobInfo jobInfo = new JobInfo();
         jobInfo.setJob(HelloJob.class);
-        jobInfo.setJobKey(new JobKey("job1", "group1"));
+        jobInfo.setJobName("job1");
+        jobInfo.setGroupName("group1");
         return jobInfo;
     }
 
     @Override
     protected TriggerInfo buildTriggerInfo() {
         TriggerInfo triggerInfo = new TriggerInfo();
-        triggerInfo.setTriggerKey(new TriggerKey("trigger1", "group1"));
+        triggerInfo.setTriggerName("trigger1");
+        triggerInfo.setGroupName("group1");
         triggerInfo.setScheduleBuilder(simpleSchedule().withIntervalInSeconds(6).repeatForever());
         return triggerInfo;
     }
