@@ -42,6 +42,9 @@ public class DefaultInitializer implements QuartzInitializer, ApplicationContext
     }
 
     private synchronized void initInner() throws SchedulerException {
+        if (isInit) {
+            return;
+        }
         Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
         List<SchedulerTask> schedulerTasks = getSchedulerTasks();
         if (!CollectionUtils.isEmpty(schedulerTasks)) {
