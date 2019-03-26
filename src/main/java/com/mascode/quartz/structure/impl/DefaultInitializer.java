@@ -12,6 +12,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,9 +22,26 @@ import java.util.List;
 @Service
 public class DefaultInitializer implements QuartzInitializer, ApplicationContextAware {
 
+    private boolean isInit = false;
     private ApplicationContext applicationContext;
 
+    @PostConstruct
+    private void init() {
+        try {
+            initQuartz();
+        } catch (SchedulerException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void initQuartz() throws SchedulerException {
+        if (isInit) {
+            return;
+        }
+        initInner();
+    }
+
+    private synchronized void initInner() throws SchedulerException {
         Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
         List<SchedulerTask> schedulerTasks = getSchedulerTasks();
         if (!CollectionUtils.isEmpty(schedulerTasks)) {
@@ -32,6 +50,7 @@ public class DefaultInitializer implements QuartzInitializer, ApplicationContext
             }
         }
         scheduler.start();
+        isInit = true;
     }
 
 
