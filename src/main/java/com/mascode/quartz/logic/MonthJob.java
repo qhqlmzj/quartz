@@ -1,6 +1,6 @@
 package com.mascode.quartz.logic;
 
-import com.mascode.quartz.structure.AbstractBinding;
+import com.mascode.quartz.structure.impl.AbstractBinding;
 import com.mascode.quartz.structure.po.JobInfo;
 import com.mascode.quartz.structure.annotation.SchedulerBinding;
 import com.mascode.quartz.structure.po.TriggerInfo;
