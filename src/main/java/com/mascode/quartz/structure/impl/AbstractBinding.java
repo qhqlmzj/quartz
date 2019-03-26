@@ -14,7 +14,8 @@ import static org.quartz.TriggerBuilder.newTrigger;
  */
 public abstract class AbstractBinding implements JobBinding {
 
-    public SchedulerTask buildSchedulerTask() {
+
+    public final SchedulerTask buildSchedulerTask() {
         SchedulerTask schedulerTask = new SchedulerTask();
         JobDataMap jobDataMap = buildJobData();
         JobDetail jobDetail = getJobDetail(jobDataMap);
@@ -68,7 +69,9 @@ public abstract class AbstractBinding implements JobBinding {
      *
      * @return
      */
-    protected abstract JobDataMap buildJobData();
+    protected JobDataMap buildJobData() {
+        return null;
+    }
 
     /**
      * 构建job的基本信息，包括唯一标示jobKey以及绑定的job逻辑

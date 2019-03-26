@@ -12,11 +12,6 @@ import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 public class DailyJob extends AbstractBinding {
 
     @Override
-    protected JobDataMap buildJobData() {
-        return null;
-    }
-
-    @Override
     protected JobInfo buildJobInfo() {
         JobInfo jobInfo = new JobInfo();
         jobInfo.setJob(HelloJob.class);
