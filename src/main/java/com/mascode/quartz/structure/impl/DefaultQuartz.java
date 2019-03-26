@@ -4,12 +4,10 @@ import com.mascode.quartz.structure.Quartz;
 import com.mascode.quartz.structure.po.SchedulerTask;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 /**
  * @author mazijun
  */
-@Service
 public class DefaultQuartz implements Quartz {
 
     @Autowired
