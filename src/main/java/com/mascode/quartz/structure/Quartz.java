@@ -2,7 +2,6 @@ package com.mascode.quartz.structure;
 
 
 import com.mascode.quartz.structure.po.SchedulerTask;
-import org.quartz.SchedulerException;
 
 /**
  * @author mazijun
