@@ -17,8 +17,8 @@ public interface QuartzInitializer {
      * 3. 重写buildJobInfo 与 buildTriggerInfo 方法（必须）
      * 4. buildJobData 方法非必须实现，看具体业务场景
      *
-     * @param applicationContextO
+     * @param
      * @throws Exception
      */
-    void initQuartz(ApplicationContext applicationContextO) throws Exception;
+    void initQuartz() throws Exception;
 }

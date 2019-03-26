@@ -6,7 +6,9 @@ import com.mascode.quartz.structure.annotation.SchedulerBinding;
 import com.mascode.quartz.structure.po.SchedulerTask;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
+import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -17,12 +19,11 @@ import java.util.List;
  * @author mazijun@58.com
  */
 @Service
-public class DefaultInitializer implements QuartzInitializer {
+public class DefaultInitializer implements QuartzInitializer, ApplicationContextAware {
 
     private ApplicationContext applicationContext;
 
-    public void initQuartz(ApplicationContext applicationContextO) throws SchedulerException {
-        applicationContext = applicationContextO;
+    public void initQuartz() throws SchedulerException {
         Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
         List<SchedulerTask> schedulerTasks = getSchedulerTasks();
         if (!CollectionUtils.isEmpty(schedulerTasks)) {
@@ -91,4 +92,7 @@ public class DefaultInitializer implements QuartzInitializer {
         return applicationContext;
     }
 
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+    }
 }

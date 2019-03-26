@@ -12,7 +12,7 @@ public class MainNew {
         ApplicationContext context = new AnnotationConfigApplicationContext(
                 "com");
         QuartzInitializer quartzInitializer = context.getBean(DefaultInitializer.class);
-        quartzInitializer.initQuartz(context);
+        quartzInitializer.initQuartz();
         try {
             Thread.sleep(10 * 1000);
         } catch (InterruptedException e) {
