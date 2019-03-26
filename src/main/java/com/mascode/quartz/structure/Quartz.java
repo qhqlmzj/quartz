@@ -41,7 +41,7 @@ public interface Quartz {
     void deleteJob(String jobName, String groupName) throws Exception;
 
     /**
-     * 添加新的job
+     * 添加新的job trigger的绑定关系
      *
      * @param schedulerTask
      */
