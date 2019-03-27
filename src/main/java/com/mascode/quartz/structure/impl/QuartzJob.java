@@ -15,7 +15,7 @@ public abstract class QuartzJob implements Job {
     public void execute(JobExecutionContext context) throws JobExecutionException {
         //before execute logic
         try {
-            beforeExecute(context);
+            beforeExecuteIn(context);
         } catch (Exception e) {
             error(e);
         }
@@ -23,7 +23,7 @@ public abstract class QuartzJob implements Job {
         executeJob(context);
         //after execute logic
         try {
-            afterExecute(context);
+            afterExecuteIn(context);
         } catch (Exception e) {
             error(e);
         }
@@ -33,12 +33,32 @@ public abstract class QuartzJob implements Job {
 
     }
 
-    protected void beforeExecute(JobExecutionContext context) {
+    private void beforeExecuteIn(JobExecutionContext context) {
+        beforeExecuteIn0(context);
+        //impl by logic
+        beforeExecute(context);
+    }
+
+    private void beforeExecuteIn0(JobExecutionContext context) {
         System.out.println("before");
     }
 
-    protected void afterExecute(JobExecutionContext context) {
+    private void afterExecuteIn(JobExecutionContext context) {
+        afterExecuteIn0(context);
+        //impl by logic
+        afterExecute(context);
+    }
+
+    private void afterExecuteIn0(JobExecutionContext context) {
         System.out.println("after");
+    }
+
+    protected void beforeExecute(JobExecutionContext context) {
+        //null impl
+    }
+
+    protected void afterExecute(JobExecutionContext context) {
+        //null impl
     }
 
     /**
